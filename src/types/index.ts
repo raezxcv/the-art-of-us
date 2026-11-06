@@ -36,3 +36,4 @@ export interface Memory {
 }
 
 export type PageRoute = 'cover' | 'timeline' | 'detail' | 'add' | 'keepsakes';
+

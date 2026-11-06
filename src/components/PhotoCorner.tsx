@@ -26,3 +26,4 @@ export const PhotoCorner: React.FC<PhotoCornerProps> = ({ position, className = 
     />
   );
 };
+

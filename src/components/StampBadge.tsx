@@ -51,3 +51,4 @@ export const StampBadge: React.FC<StampBadgeProps> = ({
     </span>
   );
 };
+
