@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --paper-grain: radial-gradient(rgba(44, 30, 20, 0.04) 1px, transparent 0);
+  }
+
+  body {
+    background-color: #ECE3D4;
+    background-image: 
+      radial-gradient(#4a35250c 1px, transparent 1px),
+      radial-gradient(#4a352506 1px, #ECE3D4 1px);
+    background-size: 20px 20px, 40px 40px;
+    background-position: 0 0, 10px 10px;
+    color: #2C1E14;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Scrapbook Paper Texture & Borders */
+.paper-texture {
+  background-color: #FAF7F2;
+  background-image: 
+    linear-gradient(to right, rgba(74, 53, 37, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(74, 53, 37, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.paper-ruled {
+  background-color: #FAF7F2;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    #E8DFD3 28px
+  );
+  line-height: 28px;
+}
+
+.kraft-paper {
+  background-color: #E6D7C3;
+  background-image: radial-gradient(#6B4E3814 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Torn / Deckle Edge effect */
+.deckle-edge {
+  filter: drop-shadow(0 4px 6px rgba(44, 30, 20, 0.08));
+}
+
+/* Washi Tape styling with realistic semi-transparency and torn ends */
+.washi-tape {
+  position: relative;
+  opacity: 0.88;
+  backdrop-filter: blur(0.5px);
+  box-shadow: 0 1px 3px rgba(44, 30, 20, 0.12);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.washi-tape::before,
+.washi-tape::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background-color: inherit;
+  mask-image: radial-gradient(circle at 3px center, transparent 3px, black 3px);
+  mask-size: 6px 6px;
+}
+
+.washi-tape::before {
+  left: -5px;
+}
+.washi-tape::after {
+  right: -5px;
+  transform: rotate(180deg);
+}
+
+.washi-pattern-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+.washi-pattern-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.washi-pattern-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.25) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+/* 3D Flip Card Mechanics */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Archival Stamp with serrated edges */
+.stamp-serrated {
+  background-color: #FAF7F2;
+  position: relative;
+  filter: drop-shadow(0 2px 5px rgba(44, 30, 20, 0.15));
+}
+
+.stamp-serrated::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: 
+    radial-gradient(circle, transparent 3px, #FAF7F2 3.5px) -3px -3px / 10px 10px repeat-x,
+    radial-gradient(circle, transparent 3px, #FAF7F2 3.5px) -3px calc(100% - 7px) / 10px 10px repeat-x,
+    radial-gradient(circle, transparent 3px, #FAF7F2 3.5px) -3px -3px / 10px 10px repeat-y,
+    radial-gradient(circle, transparent 3px, #FAF7F2 3.5px) calc(100% - 7px) -3px / 10px 10px repeat-y;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Rubber Stamp Ink Mark */
+.ink-stamp {
+  border: 3px double #C0392B;
+  color: #C0392B;
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='noise'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.5 -0.5'/></filter><rect width='100%' height='100%' filter='url(%23noise)'/></svg>");
+  transform: rotate(-4deg);
+}
+
+/* Vintage Ticket Stub Notches */
+.ticket-edge {
+  position: relative;
+}
+
+.ticket-edge::before,
+.ticket-edge::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 28px;
+  background-color: #ECE3D4;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.ticket-edge::before {
+  left: -7px;
+  border-radius: 0 14px 14px 0;
+  box-shadow: inset -2px 0 3px rgba(44, 30, 20, 0.12);
+}
+
+.ticket-edge::after {
+  right: -7px;
+  border-radius: 14px 0 0 14px;
+  box-shadow: inset 2px 0 3px rgba(44, 30, 20, 0.12);
+}
+
+/* Paperclip Accent */
+.paperclip {
+  position: absolute;
+  width: 16px;
+  height: 48px;
+  border: 3px solid #786C60;
+  border-radius: 8px 8px 0 0;
+  z-index: 30;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom warm scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E8DFD3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B8A896;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8C7561;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
